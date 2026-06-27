@@ -1,0 +1,16 @@
+# ---- Secrets — NEVER commit real private keys ----
+assets/js/config.local.js
+.env
+.env.*
+*.key
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ---- Dependencies / build (if you add a build step later) ----
+node_modules/
+dist/
+.cache/

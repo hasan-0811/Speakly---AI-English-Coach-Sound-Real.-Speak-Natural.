@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speakly — Your AI English Coach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Apply theme before paint (no flash)
+        (function () {
+            const t = localStorage.getItem('spk_theme') || 'system';
+            const dark = t === 'dark' || (t === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+            document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body>
+    <div class="app">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a class="brand" href="index.html"><span class="logo"><i data-lucide="graduation-cap"></i></span> Speakly</a>
+            <div class="nav-group-label">Practice</div>
+            <div id="sideNav"></div>
+            <div class="side-foot">
+                <div class="side-card">
+                    <b><i data-lucide="flame"></i> Keep your streak!</b>
+                    <small>Practice 5 min today</small>
+                    <a class="btn" href="#/voice"><i data-lucide="mic"></i> Start speaking</a>
+                </div>
+                <div class="side-credit">Founded by <b>Hasan Rashidov</b></div>
+            </div>
+        </aside>
+
+        <!-- Main -->
+        <div class="main">
+            <div class="topbar">
+                <div>
+                    <h1 id="pageTitle">Dashboard</h1>
+                    <div class="sub" id="pageSub">Welcome back</div>
+                </div>
+                <div class="topbar-right">
+                    <span class="streak-pill" id="streakPill"><i data-lucide="flame"></i> 1-day streak</span>
+                    <div class="theme-switch" id="themeSwitch" title="Theme">
+                        <button data-theme-val="light" aria-label="Light"><i data-lucide="sun"></i></button>
+                        <button data-theme-val="dark" aria-label="Dark"><i data-lucide="moon"></i></button>
+                        <button data-theme-val="system" aria-label="System"><i data-lucide="laptop"></i></button>
+                    </div>
+                    <button class="account" id="accountBtn" type="button" title="Account">
+                        <span class="avatar" id="avatar">D</span>
+                        <span class="account-label" id="accountLabel">Log in</span>
+                    </button>
+                </div>
+            </div>
+            <main class="view"><div class="view-inner" id="view"></div></main>
+        </div>
+    </div>
+
+    <!-- Bottom nav (mobile) -->
+    <nav class="bottom-nav" id="bottomNav"></nav>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
